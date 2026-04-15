@@ -1,0 +1,31 @@
+#define _CRT_SECURE_NO_WARNINGS
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+
+int main() {
+	int n;
+	scanf("%d", &n);
+	int max = 0;
+
+	double *score = (double*)malloc(sizeof(double)*n);
+
+	for (int i = 0; i < n; i++) {
+		scanf("%lf", &score[i]);
+		if (score[i] > max) {
+			max = score[i];
+		}
+	}
+
+	double avg = 0;
+
+	for (int i = 0; i < n; i++) {
+		avg += (double)score[i] / max * 100;
+	}
+
+	printf("%f", avg / n);
+
+	free(score);
+
+	return 0;
+}
